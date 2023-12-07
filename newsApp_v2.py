@@ -1,4 +1,7 @@
+from tkinter import ttk, font
+import tkinter as tk
 from json import loads
+import urllib.request as urlr
 
 bgColor = "#121212"
 fgColor = "#ffffff"
@@ -24,7 +27,6 @@ def loadData(search, country, category):
     )
     if search:
         url = url + "&q=" + search
-    import urllib.request as urlr
 
     raw = urlr.urlopen(url)
     content = loads(raw.read())
@@ -34,8 +36,6 @@ def loadData(search, country, category):
         return content
 
 
-import tkinter as tk
-from tkinter import ttk, font
 
 root = tk.Tk()
 root.geometry("1036x570")
@@ -44,7 +44,6 @@ root.title("festival0156n NEWS App")
 
 
 def displayNews(data):
-    from tkinter import font
 
     if data["totalResults"] == 0:
         tk.Label(
